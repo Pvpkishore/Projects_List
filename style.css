@@ -80,4 +80,13 @@ body {
       display: block;
     }
 
+    @media screen and (min-width: 310px) and (max-width: 420px) {
+      body {
+          font-size:12px;
+      }
+      #small{
+        font-size:12px;
+      }
+  }
+
   
