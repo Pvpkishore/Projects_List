@@ -56,10 +56,12 @@ gsap.from(".container", {
 const toggleBtn = document.getElementById("toggle-btn");
 const toggleBtnr = document.getElementById("toggle-btnr");
 const toggleBtnb = document.getElementById("toggle-btnb");
+const toggleBtnm = document.getElementById("toggle-btnm");
 let currentVisibleProjects = 3;
 const projectCards = document.querySelectorAll('.project-card');
 const projectCardsr = document.querySelectorAll('.project-card1');
 const projectCardsb = document.querySelectorAll('.project-card2');
+const projectCardsm = document.querySelectorAll('.project-cardm');
 
 toggleBtn.addEventListener('click', function () {
   if (currentVisibleProjects < projectCards.length) {
@@ -122,5 +124,26 @@ toggleBtnb.addEventListener('click', function () {
     }
     currentVisibleProjects = 3;
     toggleBtnb.textContent = "Show More";  // Switch back to "Show More"
+  }
+});
+toggleBtnm.addEventListener('click', function () {
+  if (currentVisibleProjects < projectCardsm.length) {
+    // Show 3 more cards
+    for (let i = currentVisibleProjects; i < currentVisibleProjects + 3 && i < projectCardsm.length; i++) {
+      projectCardsm[i].style.display = 'block';
+    }
+    currentVisibleProjects += 3;
+
+    // If all cards are shown, change the button text to "Show Less"
+    if (currentVisibleProjects >= projectCardsm.length) {
+      toggleBtnm.textContent = "Show Less";
+    }
+    } else {
+    // Hide all project cards except the first 3
+    for (let i = 3; i < projectCardsm.length; i++) {
+      projectCardsm[i].style.display = 'none';
+    }
+    currentVisibleProjects = 3;
+    toggleBtnm.textContent = "Show More";  // Switch back to "Show More"
   }
 });
